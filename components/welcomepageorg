@@ -1,0 +1,62 @@
+import * as React from "react";
+import { Text, StyleSheet, Pressable, View } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
+import { Color, FontFamily, FontSize } from "../GlobalStyles";
+
+const WelcomePage = () => {
+  return (
+    <LinearGradient
+      style={styles.welcomePage}
+      locations={[0, 1]}
+      colors={["#dd6789", "#fdfdfd"]}
+      useAngle={true}
+      angle={180}
+    >
+      <View style={styles.container}>
+        <Text style={styles.nutrigenius}>NUTRIGENIUS</Text>
+        <Pressable
+          style={styles.buttonprimary}
+          onPress={() => alert('Welcome to NutriGenius!')}
+        >
+          <Text style={styles.signUp}>Enter</Text>
+        </Pressable>
+      </View>
+    </LinearGradient>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  nutrigenius: {
+    fontSize: 50,
+    fontFamily: FontFamily.juliusSansOneRegular,
+    color: Color.white,
+    marginBottom: 20,
+  },
+  signUp: {
+    fontSize: FontSize.uI16Semi_size,
+    fontWeight: "600",
+    fontFamily: FontFamily.uI16Semi,
+    color: Color.white,
+  },
+  buttonprimary: {
+    borderRadius: 100,
+    backgroundColor: Color.greenPrimary,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 32,
+  },
+  welcomePage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "transparent",
+  },
+});
+
+export default WelcomePage;
